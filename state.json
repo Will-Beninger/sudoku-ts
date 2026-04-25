@@ -1,0 +1,73 @@
+{
+  "currentPhase": "complete",
+  "currentComponent": null,
+  "completedPhases": [1, 2, 3, 4, 5],
+  "models": {
+    "cell": { "file": "src/models/cell.ts", "exports": ["SudokuCell"] },
+    "grid": { "file": "src/models/grid.ts", "exports": ["SudokuGrid"] },
+    "puzzle": { "file": "src/models/puzzle.ts", "exports": ["Difficulty", "Puzzle", "PuzzlePack"] },
+    "gameState": { "file": "src/models/gameState.ts", "exports": ["GameState"] },
+    "levelProgress": { "file": "src/models/levelProgress.ts", "exports": ["LevelProgress", "AppStats"] }
+  },
+  "logic": {
+    "gridLogic": {
+      "file": "src/logic/gridLogic.ts",
+      "exports": ["GridLogic"],
+      "methods": ["emptyGrid", "fromIntList", "updateCell", "updateCellNotes", "isValidMove", "isComplete", "getRandomEmptyPosition", "findConflicts", "getCompletedNumbers"]
+    }
+  },
+  "services": {
+    "db": {
+      "file": "src/services/db.ts",
+      "exports": ["SudokuDatabase", "db", "StorageService"],
+      "methods": ["saveGame", "loadGame", "deleteSavedGame", "getSavedPuzzleId", "isLevelCompleted", "getBestTime", "completeLevel", "getStats"],
+      "notes": "loadGame() now validates data with type guards before returning"
+    },
+    "validators": {
+      "file": "src/services/validators.ts",
+      "exports": ["validatePuzzle", "validateGameState"],
+      "notes": "Manual type guards — no external deps. Guards Puzzle shape (81-char boards, valid difficulty) and GameState shape (9x9 grid, positive elapsed time)."
+    }
+  },
+  "hooks": {
+    "gameState": {
+      "file": "src/hooks/gameState.ts",
+      "atoms": ["gridAtom", "isLoadingAtom", "isWonAtom", "currentPuzzleAtom", "elapsedTimeAtom", "hintCooldownAtom", "conflictCooldownAtom", "conflictingCellsAtom", "selectedRowAtom", "selectedColAtom", "isNoteModeAtom", "historyAtom", "feedbackMessageAtom"],
+      "derived": ["canUndoAtom", "isHintActiveAtom", "isConflictCheckActiveAtom", "completedNumbersAtom"]
+    },
+    "useGame": {
+      "file": "src/hooks/useGame.ts",
+      "exports": ["useGame"],
+      "publicAPI": ["grid", "isLoading", "isWon", "currentPuzzle", "elapsedTime", "selectedRow", "selectedCol", "isNoteMode", "canUndo", "isHintActive", "hintCooldown", "isConflictCheckActive", "conflictCooldown", "conflictingCells", "completedNumbers", "feedbackMessage", "history", "startPuzzle", "restartGame", "loadSavedGame", "resumeTimer", "pauseTimer", "selectCell", "toggleNoteMode", "undo", "inputNumber", "clearCell", "useHint", "checkConflicts"]
+    }
+  },
+  "components": {
+    "App": { "file": "src/App.tsx" },
+    "GameScreen": { "file": "src/components/GameScreen.tsx", "css": "src/components/GameScreen.css" },
+    "SudokuBoard": { "file": "src/components/SudokuBoard.tsx", "css": "src/components/SudokuBoard.css" },
+    "SudokuCell": { "file": "src/components/SudokuCell.tsx", "css": "src/components/SudokuCell.css" },
+    "NumberPad": { "file": "src/components/NumberPad.tsx", "css": "src/components/NumberPad.css" },
+    "GameControls": { "file": "src/components/GameControls.tsx", "css": "src/components/GameControls.css" }
+  },
+  "tests": {
+    "unit": [
+      "src/tests/gridLogic.test.ts",
+      "src/tests/useGame.test.tsx",
+      "src/tests/validators.test.ts",
+      "src/tests/db.test.ts",
+      "src/App.test.tsx"
+    ],
+    "e2e": ["src/tests/smoke.spec.ts"],
+    "counts": { "unit": 42, "e2e": 7, "total": 49 }
+  },
+  "knownConstants": {
+    "base": "/sudoku-ts/",
+    "previewURL": "http://localhost:4173/sudoku-ts/",
+    "mockPuzzleId": "mock-1",
+    "hintCooldownSeconds": 10,
+    "conflictCooldownSeconds": 10,
+    "autoSaveInterval": 10
+  },
+  "unresolvedDependencies": [],
+  "lastUpdated": "2026-04-25T12:54:00-05:00"
+}

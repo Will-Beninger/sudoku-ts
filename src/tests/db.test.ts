@@ -20,9 +20,14 @@ describe('StorageService', () => {
         difficulty: 'easy'
       },
       grid: {
-        rows: [
-          [{ value: 5, isFixed: true, isValid: true, notes: new Set() }]
-        ]
+        rows: Array.from({ length: 9 }, () =>
+          Array.from({ length: 9 }, () => ({
+            value: null,
+            isFixed: false,
+            isValid: true,
+            notes: new Set<number>(),
+          }))
+        )
       },
       elapsedTimeSeconds: 120,
       lastPlayed: new Date().toISOString()

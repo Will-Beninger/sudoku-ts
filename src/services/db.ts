@@ -1,6 +1,7 @@
 import Dexie, { type Table } from 'dexie';
 import type { GameState } from '../models/gameState';
 import type { LevelProgress, AppStats } from '../models/levelProgress';
+import { validateGameState } from './validators';
 
 export class SudokuDatabase extends Dexie {
   savedGames!: Table<GameState, number>;
@@ -29,7 +30,15 @@ export const StorageService = {
   },
 
   async loadGame(): Promise<GameState | undefined> {
-    return await db.savedGames.get(1);
+    const raw = await db.savedGames.get(1);
+    if (!raw) return undefined;
+    const validated = validateGameState(raw);
+    if (!validated) {
+      // Corrupted data — delete it
+      await db.savedGames.delete(1);
+      return undefined;
+    }
+    return validated;
   },
 
   async deleteSavedGame(): Promise<void> {

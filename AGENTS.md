@@ -40,3 +40,17 @@ A task is NOT considered complete until the following conditions are met:
 4. **Live Verification:** The application is reachable at the production URL and the core Sudoku grid renders correctly.
 
 **Crucial:** If the live deployment fails, you are authorized to revert the commit or issue an emergency fix without further prompting.
+
+## Token Efficiency & Decisiveness
+1. **Forbidden Scanning:** Never run `ls -R` or read entire directories. Only read the specific file listed in the current task.
+2. **No Thinking Out Loud:** Skip "I will now look at..." or "It seems that...". Go straight to the code or the terminal command.
+3. **Task-Specific Context:** If you are working on the 'Board Logic', do not read UI files. Focus strictly on the files required for the current implementation step.
+4. **Failure Limit:** If a command fails 3 times, STOP. Summarize the error and wait for human intervention. Do not loop autonomously into a retry-burn.
+
+## Model Routing Policy (Autonomous)
+You must select the most efficient model for the sub-task:
+- **Gemini 3 Flash:** Default for file conversion, unit testing, and shell commands.
+- **Gemini 3.1 Pro:** Use for multi-file logic integration (e.g., connecting UI to Game Logic).
+- **Claude Sonnet 4.6 (Thinking):** Use for deep debugging of build errors or architectural planning.
+
+**Constraint:** Always attempt a task with Gemini 3 Flash first. Escalate to Pro/Sonnet only if Flash fails a verification check twice.
