@@ -25,3 +25,9 @@ You are a Senior Software Architect specializing in TypeScript and Cloud-Native 
 ## Behavior
 - Use `pnpm` for all package management.
 - If a task in `implementation_plan.md` is completed and verified (lint/test pass), automatically initiate the `git-sync` skill.
+
+
+## Security & Deployment Guardrails
+- **Production-First Mindset:** You are prohibited from running `git push` until `pnpm run build` has successfully completed locally.
+- **Visual Verification:** Before merging to `main`, you must execute the `smoke` test. If the test fails, you must analyze the `dist/` folder and the browser console logs to diagnose why the build is broken.
+- **Environment Isolation:** Do not modify the `gh-pages` branch directly. Only the `main` branch should trigger the deployment workflow.
