@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 
 test('smoke: app renders without crashing', async ({ page }) => {
-    await page.goto('/');
+    await page.goto('./');
 
     // Verify the main app container exists (adjust selector for your app)
     const root = page.locator('#root');
