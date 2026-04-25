@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useGame } from '../hooks/useGame';
 import type { Puzzle } from '../models/puzzle';
+import { SudokuBoard } from './SudokuBoard';
 import './GameScreen.css';
 
 const MOCK_PUZZLE: Puzzle = {
@@ -26,9 +27,7 @@ export const GameScreen = () => {
         <h1>Sudoku: Always Free</h1>
       </header>
       <main className="game-main">
-        <div className="board-placeholder">
-          <p>Board UI goes here</p>
-        </div>
+        <SudokuBoard />
       </main>
     </div>
   );

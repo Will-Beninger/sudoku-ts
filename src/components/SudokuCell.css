@@ -1,0 +1,89 @@
+.sudoku-cell {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1 / 1;
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  background-color: var(--cell-bg);
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.15s ease-in-out;
+}
+
+.sudoku-cell:hover {
+  background-color: var(--bg-surface-variant);
+}
+
+.sudoku-cell.border-right-thick {
+  border-right: 2px solid var(--text-primary);
+}
+
+.sudoku-cell.border-bottom-thick {
+  border-bottom: 2px solid var(--text-primary);
+}
+
+/* State colors */
+.sudoku-cell.highlighted {
+  background-color: var(--cell-bg-highlight);
+}
+
+.sudoku-cell.selected {
+  background-color: var(--cell-bg-selected);
+}
+
+/* Text styles */
+.cell-value {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.sudoku-cell.fixed .cell-value {
+  color: var(--cell-text-fixed);
+}
+
+.sudoku-cell.user-input .cell-value {
+  color: var(--cell-text-user);
+}
+
+.sudoku-cell.conflict .cell-value {
+  color: var(--cell-text-error);
+}
+
+.sudoku-cell.conflict {
+  background-color: var(--error);
+  opacity: 0.8;
+}
+.sudoku-cell.conflict.fixed .cell-value,
+.sudoku-cell.conflict.user-input .cell-value {
+  color: var(--on-error);
+}
+
+/* Notes styles */
+.cell-notes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  width: 100%;
+  height: 100%;
+  padding: 2px;
+}
+
+.note-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.65rem;
+  color: var(--text-secondary);
+  line-height: 1;
+}
+
+@media (max-width: 400px) {
+  .cell-value {
+    font-size: 1.25rem;
+  }
+  .note-number {
+    font-size: 0.5rem;
+  }
+}
