@@ -6,6 +6,6 @@ import { describe, it, expect } from 'vitest';
 describe('App', () => {
   it('renders GameScreen header', () => {
     render(<App />);
-    expect(screen.getByText('Sudoku: Always Free')).toBeInTheDocument();
+    expect(screen.getByText('Sudoku')).toBeInTheDocument();
   });
 });

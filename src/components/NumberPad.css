@@ -1,0 +1,37 @@
+.number-pad {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 500px;
+  gap: 8px;
+}
+
+.num-btn {
+  flex: 1;
+  aspect-ratio: 1 / 1.2;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--primary);
+  background-color: var(--primary-container);
+  border-radius: 8px;
+  transition: background-color 0.15s ease-in-out;
+}
+
+.num-btn:hover {
+  background-color: var(--bg-surface-variant);
+}
+
+.num-btn:active {
+  background-color: var(--primary);
+  color: var(--on-primary);
+}
+
+@media (max-width: 400px) {
+  .num-btn {
+    font-size: 1.2rem;
+    gap: 4px;
+  }
+  .number-pad {
+    gap: 4px;
+  }
+}

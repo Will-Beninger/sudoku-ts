@@ -8,15 +8,45 @@
 
 .game-header {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+  width: 100%;
+}
+
+.header-left, .header-right {
+  flex: 1;
+  display: flex;
+}
+
+.header-left {
+  justify-content: flex-start;
+}
+
+.header-right {
+  justify-content: flex-end;
 }
 
 .game-header h1 {
+  flex: 2;
+  text-align: center;
   font-size: 1.5rem;
   font-weight: 600;
   margin: 0;
   color: var(--primary);
+}
+
+.difficulty-badge {
+  font-size: 0.8rem;
+  font-weight: 600;
+  background-color: var(--bg-surface-variant);
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.timer {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-secondary);
 }
 
 .game-main {

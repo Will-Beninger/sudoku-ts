@@ -1,0 +1,46 @@
+.game-controls {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 500px;
+  gap: 8px;
+  margin-bottom: 1rem;
+}
+
+.control-btn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 4px;
+  color: var(--text-secondary);
+  background-color: transparent;
+  border-radius: 8px;
+  transition: all 0.15s ease-in-out;
+}
+
+.control-btn:hover:not(:disabled) {
+  background-color: var(--bg-surface-variant);
+  color: var(--text-primary);
+}
+
+.control-btn.active {
+  color: var(--primary);
+  background-color: var(--primary-container);
+}
+
+.control-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.control-icon {
+  font-size: 1.5rem;
+  margin-bottom: 4px;
+}
+
+.control-label {
+  font-size: 0.75rem;
+  font-weight: 500;
+}
