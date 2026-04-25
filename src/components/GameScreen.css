@@ -1,0 +1,38 @@
+.game-screen {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 500px;
+  gap: 1.5rem;
+}
+
+.game-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.game-header h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0;
+  color: var(--primary);
+}
+
+.game-main {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.board-placeholder {
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  background-color: var(--bg-surface-variant);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+}

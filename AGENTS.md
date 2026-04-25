@@ -31,3 +31,12 @@ You are a Senior Software Architect specializing in TypeScript and Cloud-Native 
 - **Production-First Mindset:** You are prohibited from running `git push` until `pnpm run build` has successfully completed locally.
 - **Visual Verification:** Before merging to `main`, you must execute the `smoke` test. If the test fails, you must analyze the `dist/` folder and the browser console logs to diagnose why the build is broken.
 - **Environment Isolation:** Do not modify the `gh-pages` branch directly. Only the `main` branch should trigger the deployment workflow.
+
+## The "Definition of Done" (DoD)
+A task is NOT considered complete until the following conditions are met:
+1. **Zero Regressions:** All local unit and integration tests pass.
+2. **Build Success:** `pnpm run build` produces a valid `dist/` folder.
+3. **CI/CD Confirmation:** The GitHub Action triggered by the push shows a "Success" status in `gh run list`.
+4. **Live Verification:** The application is reachable at the production URL and the core Sudoku grid renders correctly.
+
+**Crucial:** If the live deployment fails, you are authorized to revert the commit or issue an emergency fix without further prompting.

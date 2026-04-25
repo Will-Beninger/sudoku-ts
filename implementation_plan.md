@@ -21,3 +21,9 @@
 ## Phase 5: Verification & Cleanup
 - [ ] Perform full E2E test of the business workflow.
 - [ ] Final security audit of client-side logic.
+
+## Recurring Tasks (Post-Phase)
+- [ ] Task: [Feature Name]
+    - [ ] Local Implementation & Tests
+    - [ ] Automated Sync & Build Monitoring
+    - [ ] **Live URL Smoke Test (Post-Deployment)**
