@@ -1,7 +1,7 @@
 import 'fake-indexeddb/auto'; // Required to polyfill IndexedDB in node/jsdom
 import { describe, it, expect, beforeEach } from 'vitest';
 import { db, StorageService } from '../services/db';
-import { GameState } from '../models/gameState';
+import type { GameState } from '../models/gameState';
 
 describe('StorageService', () => {
   beforeEach(async () => {

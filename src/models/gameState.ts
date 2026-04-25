@@ -1,5 +1,5 @@
-import { SudokuGrid } from './grid';
-import { Puzzle } from './puzzle';
+import type { SudokuGrid } from './grid';
+import type { Puzzle } from './puzzle';
 
 export interface GameState {
   id?: number; // Primary key for Dexie (optional for new inserts)

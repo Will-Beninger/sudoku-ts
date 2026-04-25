@@ -1,6 +1,6 @@
-import Dexie, { Table } from 'dexie';
-import { GameState } from '../models/gameState';
-import { LevelProgress, AppStats } from '../models/levelProgress';
+import Dexie, { type Table } from 'dexie';
+import type { GameState } from '../models/gameState';
+import type { LevelProgress, AppStats } from '../models/levelProgress';
 
 export class SudokuDatabase extends Dexie {
   savedGames!: Table<GameState, number>;
