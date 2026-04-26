@@ -1,10 +1,12 @@
 import React from 'react';
 import { useGame } from '../hooks/useGame';
+import { useSettings } from '../hooks/useSettings';
 import { SudokuCell } from './SudokuCell';
 import './SudokuBoard.css';
 
 export const SudokuBoard: React.FC = () => {
   const { grid, selectedRow, selectedCol, conflictingCells, selectCell } = useGame();
+  const { settings } = useSettings();
 
   const selectedValue =
     selectedRow !== null && selectedCol !== null
@@ -29,7 +31,9 @@ export const SudokuBoard: React.FC = () => {
                 const sameValue =
                   selectedValue !== null && cell.value === selectedValue;
                   
-                isHighlighted = sameRow || sameCol || sameBlock || sameValue;
+                isHighlighted = 
+                  (settings.highlightRowCol && (sameRow || sameCol || sameBlock)) ||
+                  (settings.highlightSameNumber && sameValue);
               }
 
               const isConflict = conflictingCells.has(`${String(rIndex)}-${String(cIndex)}`);

@@ -4,6 +4,12 @@
   width: 100%;
   max-width: 500px;
   gap: 1.5rem;
+  animation: gsSlideIn 0.3s ease-out;
+}
+
+@keyframes gsSlideIn {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
 }
 
 .game-header {
@@ -16,14 +22,50 @@
 .header-left, .header-right {
   flex: 1;
   display: flex;
+  align-items: center;
 }
 
 .header-left {
   justify-content: flex-start;
+  gap: 0.5rem;
 }
 
 .header-right {
   justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+.gear-btn {
+  color: var(--text-primary);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s ease;
+}
+
+.gear-btn:hover {
+  background: var(--bg-surface-variant);
+}
+
+.back-btn {
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  border-radius: 8px;
+  transition: background 0.15s ease;
+  line-height: 1;
+}
+
+.back-btn:hover {
+  background: var(--bg-surface-variant);
 }
 
 .game-header h1 {
@@ -56,13 +98,46 @@
   width: 100%;
 }
 
-.board-placeholder {
-  aspect-ratio: 1 / 1;
-  width: 100%;
-  background-color: var(--bg-surface-variant);
+/* Win banner */
+.win-banner {
+  text-align: center;
+  padding: 1.25rem;
+  background: var(--primary-container);
   border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--text-secondary);
+  animation: winPop 0.4s ease-out;
 }
+
+@keyframes winPop {
+  0% { transform: scale(0.9); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.win-banner p {
+  margin: 0.25rem 0;
+  color: var(--on-primary-container);
+  font-weight: 600;
+  font-size: 1.125rem;
+}
+
+.win-time {
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.menu-return-btn {
+  margin-top: 0.75rem;
+  padding: 0.625rem 1.5rem;
+  border-radius: 999px;
+  background: var(--primary);
+  color: var(--on-primary);
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  border: none;
+  transition: filter 0.15s ease;
+}
+
+.menu-return-btn:hover {
+  filter: brightness(1.1);
+}
+

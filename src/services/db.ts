@@ -1,19 +1,27 @@
 import Dexie, { type Table } from 'dexie';
 import type { GameState } from '../models/gameState';
 import type { LevelProgress, AppStats } from '../models/levelProgress';
+import type { AppSettings } from './settingsService';
 import { validateGameState } from './validators';
 
 export class SudokuDatabase extends Dexie {
   savedGames!: Table<GameState, number>;
   levelProgress!: Table<LevelProgress, string>;
   stats!: Table<AppStats, number>;
+  settings!: Table<AppSettings, number>;
 
   constructor() {
     super('SudokuDatabase');
     this.version(1).stores({
-      savedGames: '++id, lastPlayed', // id is auto-incremented primary key
-      levelProgress: 'puzzleId, completed', // puzzleId is primary key
-      stats: 'id', // id is primary key
+      savedGames: '++id, lastPlayed',
+      levelProgress: 'puzzleId, completed',
+      stats: 'id',
+    });
+    this.version(2).stores({
+      savedGames: '++id, lastPlayed',
+      levelProgress: 'puzzleId, completed',
+      stats: 'id',
+      settings: 'id',
     });
   }
 }

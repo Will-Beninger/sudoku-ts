@@ -1,0 +1,177 @@
+.level-selector {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+  animation: lsFadeIn 0.3s ease-out;
+}
+
+@keyframes lsFadeIn {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.ls-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 1rem;
+}
+
+.ls-header h1 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0;
+  color: var(--text-primary);
+}
+
+.ls-back {
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  border-radius: 8px;
+  transition: background 0.15s ease;
+  line-height: 1;
+}
+
+.ls-back:hover {
+  background: var(--bg-surface-variant);
+}
+
+.ls-loading,
+.ls-error {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.ls-error {
+  color: var(--error);
+}
+
+/* Pack sections */
+.ls-packs {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.ls-pack-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.875rem 1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-primary);
+  font-size: 1.05rem;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: background 0.15s ease;
+}
+
+.ls-pack-header:hover {
+  background: var(--bg-surface);
+}
+
+.ls-pack-header.expanded {
+  background: var(--bg-surface);
+}
+
+.ls-pack-chevron {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+/* Puzzle list */
+.ls-puzzle-list {
+  padding: 0.5rem 0 0.5rem 1rem;
+  animation: listSlideDown 0.2s ease-out;
+}
+
+@keyframes listSlideDown {
+  from { opacity: 0; max-height: 0; }
+  to { opacity: 1; max-height: 9999px; }
+}
+
+.ls-difficulty-badge {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 0.25rem 0;
+  margin-bottom: 0.5rem;
+}
+
+.ls-puzzle-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 0.625rem 0.75rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  border-radius: 8px;
+  transition: background 0.15s ease;
+}
+
+.ls-puzzle-item:hover {
+  background: var(--bg-surface);
+}
+
+.ls-puzzle-num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--bg-surface-variant);
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 0.875rem;
+  flex-shrink: 0;
+}
+
+.ls-puzzle-num.in-progress {
+  background: #ff9800;
+  color: #fff;
+}
+
+.ls-puzzle-num.completed {
+  background: #4caf50;
+  color: #fff;
+}
+
+.ls-puzzle-name {
+  flex: 1;
+  text-align: left;
+}
+
+.ls-badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.ls-badge-progress {
+  background: #ff9800;
+  color: #fff;
+}
+
+.ls-badge-complete {
+  background: #4caf50;
+  color: #fff;
+}

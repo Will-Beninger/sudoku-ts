@@ -26,6 +26,11 @@
   color: var(--on-primary);
 }
 
+.num-btn-dimmed {
+  opacity: 0.3;
+  pointer-events: none;
+}
+
 @media (max-width: 400px) {
   .num-btn {
     font-size: 1.2rem;
